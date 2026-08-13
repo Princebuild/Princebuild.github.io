@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Princebuild | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: white;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(11,16,32,0.9);
+      padding: 20px 0;
+      z-index: 1000;
+      border-bottom: 1px solid #252c45;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #00d4ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #b5bfd8;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00d4ff;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      background:
+        radial-gradient(circle at 80% 20%, rgba(108,99,255,.25), transparent 30%),
+        radial-gradient(circle at 20% 80%, rgba(0,212,255,.12), transparent 30%);
+    }
+
+    .hero h1 {
+      font-size: 70px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #00d4ff;
+    }
+
+    .hero h2 {
+      font-size: 28px;
+      color: #aeb8d0;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #aeb8d0;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 8px;
+      margin-right: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+      border: 1px solid #343c58;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, #6c63ff, #00d4ff);
+      border: none;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* SECTION */
+    section {
+      padding: 90px 0;
+    }
+
+    .title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .title h2 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .title p {
+      color: #9da8c2;
+    }
+
+    /* CARDS */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .card {
+      background: #11182d;
+      border: 1px solid #252c45;
+      border-radius: 15px;
+      padding: 30px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #6c63ff;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 22px;
+    }
+
+    .card p {
+      color: #aeb8d0;
+    }
+
+    /* SKILLS */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 15px;
+    }
+
+    .skill {
+      text-align: center;
+      background: #11182d;
+      border: 1px solid #252c45;
+      padding: 20px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .skill:hover {
+      transform: translateY(-5px);
+      border-color: #00d4ff;
+    }
+
+    /* PROJECTS */
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project a {
+      display: inline-block;
+      margin-top: 20px;
+      color: #00d4ff;
+      font-weight: bold;
+    }
+
+    /* CONTACT */
+    .contact {
+      text-align: center;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact p {
+      color: #aeb8d0;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #252c45;
+      color: #9da8c2;
+    }
+
+    /* MOBILE */
+    @media(max-width: 800px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero h2 {
+        font-size: 22px;
+      }
+
+      .cards,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="container nav">
+
+      <div class="logo">
+        Prince<span>build</span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+    </div>
+  </nav>
+
+
+  <!-- HOME -->
+  <section class="hero" id="home">
+
+    <div class="container">
+
+      <h1>
+        Hi, I'm <span>Princebuild</span> 👋
+      </h1>
+
+      <h2>
+        B.Tech CSE Student | Aspiring Software Engineer
+      </h2>
+
+      <p>
+        I am learning Java, C++, DSA, HTML, CSS and Git/GitHub.
+        I love building projects, solving programming problems
+        and improving my software development skills.
+      </p>
+
+      <a href="#projects" class="btn btn-primary">
+        View My Projects
+      </a>
+
+      <a
+        href="https://github.com/Princebuild"
+        target="_blank"
+        class="btn"
+      >
+        GitHub ↗
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="title">
+        <h2>About Me</h2>
+        <p>My journey in Computer Science</p>
+      </div>
+
+      <div class="cards">
+
+        <div class="card">
+
+          <h3>🎓 Education</h3>
+
+          <p>
+            I am a B.Tech Computer Science & Engineering student.
+            Currently I am focusing on programming, DSA,
+            web development and software engineering.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <h3>🚀 My Goal</h3>
+
+          <p>
+            My goal is to become a skilled Software Engineer
+            by improving my programming skills, solving DSA
+            problems and building real-world projects.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SKILLS -->
+  <section id="skills">
+
+    <div class="container">
+
+      <div class="title">
+
+        <h2>My Skills</h2>
+
+        <p>Technologies I am learning</p>
+
+      </div>
+
+
+      <div class="skills">
+
+        <div class="skill">☕ Java</div>
+
+        <div class="skill">⚡ C++</div>
+
+        <div class="skill">🧠 DSA</div>
+
+        <div class="skill">🌐 HTML</div>
+
+        <div class="skill">🎨 CSS</div>
+
+        <div class="skill">🔧 Git</div>
+
+        <div class="skill">🐙 GitHub</div>
+
+        <div class="skill">💻 Web Development</div>
+
+        <div class="skill">🧩 OOP</div>
+
+        <div class="skill">📚 Problem Solving</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PROJECTS -->
+  <section id="projects">
+
+    <div class="container">
+
+      <div class="title">
+
+        <h2>My Projects</h2>
+
+        <p>Projects I have built and practiced</p>
+
+      </div>
+
+
+      <div class="projects">
+
+
+        <div class="card project">
+
+          <h3>🌐 Personal Portfolio</h3>
+
+          <p>
+            My personal portfolio website created using
+            HTML and CSS and deployed using GitHub Pages.
+          </p>
+
+          <a
+            href="https://github.com/Princebuild/Princebuild.github.io"
+            target="_blank"
+          >
+            View Project →
+          </a>
+
+        </div>
+
+
+        <div class="card project">
+
+          <h3>🐙 GitHub Learning</h3>
+
+          <p>
+            Practicing repositories, branches, commits,
+            pull requests and GitHub collaboration.
+          </p>
+
+          <a
+            href="https://github.com/Princebuild/skills-introduction-to-github"
+            target="_blank"
+          >
+            View Repository →
+          </a>
+
+        </div>
+
+
+        <div class="card project">
+
+          <h3>🧠 DSA Practice</h3>
+
+          <p>
+            Practicing data structures and algorithms using
+            Java and C++ to improve problem-solving skills.
+          </p>
+
+          <a
+            href="https://github.com/Princebuild"
+            target="_blank"
+          >
+            View GitHub →
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="card contact">
+
+        <div class="title">
+
+          <h2>Let's Connect 🤝</h2>
+
+          <p>
+            Want to see my work or connect with me?
+            Check out my GitHub profile.
+          </p>
+
+        </div>
+
+
+        <a
+          href="https://github.com/Princebuild"
+          target="_blank"
+          class="btn btn-primary"
+        >
+          🐙 Visit My GitHub
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      © 2026 Princebuild | Built with HTML & CSS 🚀
+    </p>
+
+  </footer>
+
+</body>
+</html>
